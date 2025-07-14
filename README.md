@@ -1,4 +1,4 @@
-# Ponderador-PAES 🎓
+# Pondera-PAES 🎓
 
 Aplicación móvil diseñada para asistir a estudiantes interesados en la educación superior, proporcionando herramientas para calcular puntajes de ponderación, explorar información detallada de carreras universitarias (grados, duración, descripciones) y conocer los requisitos de admisión.
 
