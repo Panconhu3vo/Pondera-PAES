@@ -22,17 +22,6 @@ if ! command_exists npm; then
 fi
 echo "✅ Node.js y npm detectados."
 
-# Verificar Python 3 y pip
-if ! command_exists python3; then
-  echo "❌ Python 3 no está instalado. Por favor, instálalo desde https://www.python.org/."
-  exit 1
-fi
-if ! command_exists pip3; then
-  echo "❌ pip3 no está instalado. Asegúrate de que Python 3 esté bien instalado."
-  exit 1
-fi
-echo "✅ Python 3 y pip3 detectados."
-
 # Verificar Expo CLI (si se usa Expo)
 read -p "¿Estás utilizando Expo para React Native? (s/n): " use_expo
 if [[ "$use_expo" =~ ^[Ss]$ ]]; then
