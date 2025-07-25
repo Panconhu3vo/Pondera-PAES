@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Title from "./src/components/Titles";
 import { useFonts } from "@expo-google-fonts/raleway";
 import { CUSTOM_FONTS } from "./src/constants/Fonts";
+import DateBlock from "./src/components/DateBlock";
 
 export default function App() {
     //Importando fonts de forma global
@@ -12,8 +13,21 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <Title textTitle={"Pondera PAES"} />
-            <Title textTitle={"Pondera PAES"} />
+            <View
+                style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 10,
+                }}
+            >
+                <DateBlock
+                    dia={"02"}
+                    mes={"DIC"}
+                    descripcion={
+                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the "
+                    }
+                />
+            </View>
 
             <StatusBar style="auto" />
         </View>
