@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         width: 250,
         borderRadius: 10,
+        marginBottom: 19,
     },
 });

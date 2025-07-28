@@ -5,9 +5,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "@expo-google-fonts/raleway";
 import { CUSTOM_FONTS } from "./src/constants/Fonts";
 
-import Title from "./src/components/Titles";
-import DateBlock from "./src/components/DateBlock";
-import Header from "./src/components/Header";
+import PantallaInicio from "./src/screens/PantallaInicio";
+import Input from "./src/components/Input";
 
 export default function App() {
     //Importando fonts de forma global
@@ -16,14 +15,8 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <View
-                style={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 10,
-                }}>
-                <Header textTitle={"Ponderaciones"} />
-            </View>
+            <PantallaInicio />
+            <Input />
 
             <StatusBar style="auto" />
         </View>
@@ -34,5 +27,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
+        paddingVertical: 40,
     },
 });
