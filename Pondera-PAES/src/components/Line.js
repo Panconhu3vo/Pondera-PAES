@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     line: {
         borderBottomColor: color.terciario,
         borderBottomWidth: 2,
-        width: 270,
+        width: 250,
         borderRadius: 10,
     },
 });

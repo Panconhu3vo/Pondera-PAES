@@ -1,10 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Title from "./src/components/Titles";
+
 import { useFonts } from "@expo-google-fonts/raleway";
 import { CUSTOM_FONTS } from "./src/constants/Fonts";
+
+import Title from "./src/components/Titles";
 import DateBlock from "./src/components/DateBlock";
+import Header from "./src/components/Header";
 
 export default function App() {
     //Importando fonts de forma global
@@ -18,15 +21,8 @@ export default function App() {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: 10,
-                }}
-            >
-                <DateBlock
-                    dia={"02"}
-                    mes={"DIC"}
-                    descripcion={
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the "
-                    }
-                />
+                }}>
+                <Header textTitle={"Ponderaciones"} />
             </View>
 
             <StatusBar style="auto" />
