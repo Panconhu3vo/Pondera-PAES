@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Title from "./src/components/Titles";
+
 import { useFonts } from "@expo-google-fonts/raleway";
 import { CUSTOM_FONTS } from "./src/constants/Fonts";
 import CareerDescription from "./src/components/CareerDescription";
@@ -31,5 +31,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
+        paddingVertical: 40,
     },
 });
