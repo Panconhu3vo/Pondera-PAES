@@ -4,9 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { useFonts } from "@expo-google-fonts/raleway";
 import { CUSTOM_FONTS } from "./src/constants/Fonts";
-
-import PantallaInicio from "./src/screens/PantallaInicio";
-import Input from "./src/components/Input";
+import CareerDescription from "./src/components/CareerDescription";
 
 export default function App() {
     //Importando fonts de forma global
@@ -15,9 +13,15 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <PantallaInicio />
-            <Input />
-
+            <CareerDescription
+                NameCareer={
+                    "Licenciatura en Ingeniería en Ciencia de la Computación"
+                }
+                Description={
+                    "{Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum}"
+                }
+                NameUniversity={"Pontif.Universidad Catolica de Chile"}
+            />
             <StatusBar style="auto" />
         </View>
     );
