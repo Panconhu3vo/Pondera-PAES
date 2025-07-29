@@ -1,14 +1,16 @@
 import { TextInput, View, StyleSheet } from "react-native";
 import color from "../constants/Colores";
 
-export default function Input() {
+export default function Input({ valueInput, onChangeTextInput }) {
     return (
         <View style={styles.box}>
             <TextInput
                 style={styles.input}
                 keyboardType="numeric"
                 underlineColorAndroid="transparent"
-                maxLength={4}></TextInput>
+                maxLength={4}
+                value={valueInput}
+                onChangeText={onChangeTextInput}></TextInput>
         </View>
     );
 }
@@ -24,8 +26,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     input: {
-        width: 140,
-        height: 45,
+        width: 136,
+        height: 43,
         textAlign: "center",
         fontFamily: "Raleway-Bold",
         color: color.primario,
