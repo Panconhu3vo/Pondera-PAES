@@ -1,7 +1,6 @@
 import {
     Raleway_400Regular,
     Raleway_700Bold,
-    Raleway_300Light,
 } from "@expo-google-fonts/raleway";
 
 export const CUSTOM_FONTS = {
