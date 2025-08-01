@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
     description: {
         color: color.primario,
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: "Raleway-Bold",
     },
 
