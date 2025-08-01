@@ -1,29 +1,29 @@
 {
-  "expo": {
-    "name": "Pondera-PAES",
-    "slug": "Pondera-PAES",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "expo": {
+        "name": "Pondera PAES",
+        "slug": "Pondera PAES",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/PPAES-icon.png",
+        "userInterfaceStyle": "light",
+        "newArchEnabled": true,
+        "splash": {
+            "image": "./assets/PPAES-icon-splash-light.png",
+            "backgroundColor": "#ffffff",
+            "resizeMode": "contain"
+        },
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/PPAES-icon-splash-light.png",
+                "backgroundColor": "#222559"
+            },
+            "edgeToEdgeEnabled": true
+        },
+        "web": {
+            "favicon": "./assets/PPAES-icon.png"
+        }
     }
-  }
 }
