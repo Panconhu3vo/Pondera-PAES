@@ -23,7 +23,7 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <StatusBar style="auto" />
+            <StatusBar barStyle="light-content" />
             <Tab.Navigator
                 initialRouteName="Inicio" // Pantalla inicial cuando la app carga
                 screenOptions={({ route }) => ({
