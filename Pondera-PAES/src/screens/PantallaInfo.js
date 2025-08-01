@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 import Header from "../components/Header";
 import CareerDescription from "../components/CareerDescription";
 
@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 15,
         alignItems: "center",
+        paddingTop: Platform.OS === "android" && 35,
     },
 });
