@@ -1,4 +1,10 @@
-import { StyleSheet, ScrollView, SafeAreaView, Platform } from "react-native";
+import {
+    StyleSheet,
+    ScrollView,
+    SafeAreaView,
+    Platform,
+    StatusBar,
+} from "react-native";
 import Table from "../components/TablaPonderaciones/Table";
 import Header from "../components/Header";
 import ModifyTable from "../components/ModifyTable";

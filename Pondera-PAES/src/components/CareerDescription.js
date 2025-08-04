@@ -16,13 +16,13 @@ export default function CareerDescription({
 const styles = StyleSheet.create({
     nameCareer: {
         color: color.primario,
-        fontSize: 24,
+        fontSize: 26,
         border: 1,
         fontFamily: "Raleway-Bold",
     },
     nameUniversity: {
         color: color.secundario,
-        fontSize: 18,
+        fontSize: 20,
         fontFamily: "Raleway-Bold",
     },
 
