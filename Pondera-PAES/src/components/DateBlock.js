@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: "space-evenly",
         alignItems: "center",
-        backgroundColor: color.primario,
+        backgroundColor: color.primario || "#000    ",
         width: 370,
         height: 110,
         borderRadius: 10,
