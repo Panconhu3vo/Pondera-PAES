@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         padding: 10,
         gap: 5,
+        marginVertical: 4,
     },
     fecha: {
         alignItems: "center",
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     },
 
     textDescripcion: {
-        fontSize: 12,
+        fontSize: 14,
         fontFamily: "Raleway-Bold",
         color: color.primario,
     },

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import DateBlock from "../components/DateBlock";
 
 const fechas = require("../../data/Fechas.json");
+
 export default function PantallaFechas() {
     const [fecha, setFecha] = useState([]);
     useEffect(() => {
@@ -20,9 +21,9 @@ export default function PantallaFechas() {
             <FlatList
                 data={fecha}
                 keyExtractor={(item) => item.id}
-                renderItem={(item) => (
+                renderItem={({ item }) => (
                     <DateBlock
-                        dia={item.dia}
+                        dia={item.dia < 10 ? "0" + item.dia : item.dia}
                         mes={item.mes}
                         descripcion={item.descripcion}
                     />
@@ -33,5 +34,5 @@ export default function PantallaFechas() {
 }
 
 const styles = StyleSheet.create({
-    pantalla: { justifyContent: "center", flex: 1, gap: 10 },
+    pantalla: { alignItems: "center", flex: 1, gap: 10 },
 });
