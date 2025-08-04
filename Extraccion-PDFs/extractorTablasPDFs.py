@@ -2,41 +2,59 @@ import pdfplumber
 import pandas as pd
 import json
 import os
+import re
 
-def extract_and_clean_tables(pdf_path):
-    all_cleaned_dfs = []
+# --- Funciones Auxiliares ---
 
-    # Columnas definidas por el usuario, ¡estas son las que usa pdfplumber para asignar inicialmente!
-    columns_to_use = [
+# Función para convertir nombres a snake_case
+def to_snake_case(name):
+    # Reemplazar paréntesis y su contenido
+    name = name.replace('(C. LECT.)', 'C_LECT').replace('(M1)', 'M1').replace('(M2)', 'M2')
+    name = name.replace('(C. LECT. Y MAT1)', 'C_LECT_Y_MAT1')
+    name = re.sub(r'[\s\.\-\+\/]', '_', name) # Reemplaza espacios, puntos, guiones, + por _
+    name = re.sub(r'_+', '_', name) # Consolidar múltiples guiones bajos
+    name = name.strip('_') # Eliminar guiones bajos al principio o final
+    return name.upper() # Opcional: convertir a mayúsculas si prefieres snake_case en mayúsculas
+
+def extract_and_clean_tables(pdf_path, university_name, university_acronym, has_pace_column):
+    # Columnas base que usa pdfplumber para asignar inicialmente
+    # NO CAMBIAMOS ESTOS NOMBRES, ya que deben coincidir con la extracción bruta del PDF
+    columns_to_use_base = [
         "COD",
         "CARRERA O PROGRAMA ACADÉMICO",
         "LUGAR EN QUE SE IMPARTE",
         "NEM",
         "RANKING",
-        "COMPETENCIA LECTORA (C. LECT.)", # Nombre original
-        "COMPETENCIA MATEMÁTICA 1 (M1)", # Nombre original
+        "COMPETENCIA LECTORA (C. LECT.)",
+        "COMPETENCIA MATEMÁTICA 1 (M1)",
         "HISTORIA Y CIENCIAS SOCIALES",
         "Opcional",
         "CIENCIAS",
-        "COMPETENCIA MATEMÁTICA 2 (M2)", # Nombre original
+        "COMPETENCIA MATEMÁTICA 2 (M2)",
         "ASIGNACIÓN ESPECIAL DE PEDAGOGÍA",
         "PUNTAJE PONDERADO MÍNIMO DE POSTULACIÓN",
-        "PUNTAJE PROMEDIO (C. LECT. Y MAT1) MÍNIMO DE POSTULACIÓN", # Nombre original
+        "PUNTAJE PROMEDIO (C. LECT. Y MAT1) MÍNIMO DE POSTULACIÓN",
         "REGULAR",
-        "+ MC", # Nombre original
+        "+ MC",
         "BEA"
     ]
 
-    # Mapeo de nombres de columnas originales a los nombres deseados en el JSON final
-    # Aquí es donde definimos cómo se verán en la salida
-    column_rename_map = {
-        "COMPETENCIA LECTORA (C. LECT.)": "COMPETENCIA LECTORA C. LECT.",
-        "COMPETENCIA MATEMÁTICA 1 (M1)": "COMPETENCIA MATEMÁTICA 1 M1",
-        "COMPETENCIA MATEMÁTICA 2 (M2)": "COMPETENCIA MATEMÁTICA 2 M2",
-        "PUNTAJE PROMEDIO (C. LECT. Y MAT1) MÍNIMO DE POSTULACIÓN": "PUNTAJE PROMEDIO C. LECT. Y MAT1 MÍNIMO DE POSTULACIÓN",
-        "+ MC": "MC" # Simplificado a "MC"
-        # Agrega más entradas aquí si necesitas renombrar otras columnas
-    }
+    # Lista final de columnas a usar, incluyendo PACE si el usuario lo indicó
+    columns_to_use = list(columns_to_use_base) # Copiamos la lista base
+    if has_pace_column:
+        # Aseguramos que 'PACE' se añada al final si no existe ya
+        if "PACE" not in columns_to_use:
+            columns_to_use.append("PACE")
+        # Si 'PACE' ya estuviera en columns_to_use_base por alguna razón, no se duplicaría.
+        # En este caso, la añadimos al final. Podrías querer insertarla en una posición específica.
+        # Por ejemplo: columns_to_use.insert(index_donde_quiera, "PACE")
+
+    all_cleaned_dfs = []
+    
+    # Creamos el mapeo de nombres de columnas: original -> snake_case
+    column_rename_map = {}
+    for col in columns_to_use:
+        column_rename_map[col] = to_snake_case(col)
 
     with pdfplumber.open(pdf_path) as pdf:
         for page_num, page in enumerate(pdf.pages):
@@ -46,46 +64,50 @@ def extract_and_clean_tables(pdf_path):
             for table_num, table_data in enumerate(tables):
                 print(f"  Tabla {table_num + 1} en página {page_num + 1}...")
 
-                if len(table_data) < 3:
-                    print(f"    Advertencia: La tabla {table_num + 1} en la página {page_num + 1} tiene muy pocas filas ({len(table_data)}). Saltando.")
+                # Verificar si el número de columnas de la tabla coincide con columns_to_use
+                # Esto es crucial si la tabla NO tiene la columna extra pero has_pace_column es True
+                # O si SÍ la tiene pero has_pace_column es False
+                expected_cols_count = len(columns_to_use)
+                actual_cols_count_in_table_header = len(table_data[1]) # Fila de encabezados de la tabla
+                actual_cols_count_in_first_data_row = len(table_data[2]) if len(table_data) > 2 else 0
+
+                # Decidimos qué longitud usar para la comprobación: la de la fila de encabezados o la de datos.
+                # Es más seguro verificar la longitud de la primera fila de datos si los encabezados son complejos.
+                # Sin embargo, pdfplumber asigna según table_data[1] y table_data[2].
+                # Aquí, la tabla_data[2:] se pasa al DataFrame, así que len(table_data[2]) es el importante.
+                
+                # Manejo de casos donde la tabla tiene menos filas de las esperadas.
+                if len(table_data) < 3 or (actual_cols_count_in_first_data_row != expected_cols_count):
+                    print(f"    Advertencia: La tabla {table_num + 1} en la página {page_num + 1} tiene un número de columnas inesperado o muy pocas filas.")
+                    print(f"    Esperadas: {expected_cols_count}, Encontradas en datos: {actual_cols_count_in_first_data_row}. Saltando.")
                     continue
 
                 try:
-                    # Crear DataFrame usando los nombres de columna originales (como los del PDF)
                     df = pd.DataFrame(table_data[2:], columns=columns_to_use)
                     
                     # --- Limpieza de los datos del DataFrame ---
                     
-                    # 1. Eliminar filas completamente vacías
                     df.dropna(how='all', inplace=True)
-                    
-                    # 2. Reemplazar cadenas vacías o con solo espacios por NaN
                     df.replace(r'^\s*$', pd.NA, regex=True, inplace=True)
                     
-                    # 3. Limpiar la columna 'COD' de paréntesis y números (si existen)
-                    if "CARRERA O PROGRAMA ACADÉMICO" in df.columns:
-                        df["CARRERA O PROGRAMA ACADÉMICO"] = df["CARRERA O PROGRAMA ACADÉMICO"].astype(str).str.replace(r'\s*\(\d+\)\s*', '', regex=True)
+                    if "COD" in df.columns:
+                        df["COD"] = df["COD"].astype(str).str.replace(r'\s*\(\d+\)\s*', '', regex=True).str.strip()
                     
-                    # 4. Renombrar las columnas ANTES de la conversión de tipos,
-                    #    para que las columnas numéricas usen los nombres finales.
+                    if "CARRERA O PROGRAMA ACADÉMICO" in df.columns:
+                        df["CARRERA O PROGRAMA ACADÉMICO"] = df["CARRERA O PROGRAMA ACADÉMICO"].astype(str).str.replace(r'\s*\(\d+\)\s*', '', regex=True).str.strip()
+                        df["CARRERA O PROGRAMA ACADÉMICO"] = df["CARRERA O PROGRAMA ACADÉMICO"].str.replace(r'\s+', ' ', regex=True)
+
                     df.rename(columns=column_rename_map, inplace=True)
 
-                    # 5. Convertir tipos de datos y manejar NaNs
-                    # Esta lista de columnas numéricas DEBE usar los nombres RENOMBRADOS
-                    numeric_cols_final = [
-                        "COD", "NEM", "RANKING",
-                        "COMPETENCIA LECTORA C. LECT.", # Nombre renombrado
-                        "COMPETENCIA MATEMÁTICA 1 M1", # Nombre renombrado
-                        "HISTORIA Y CIENCIAS SOCIALES", "CIENCIAS",
-                        "COMPETENCIA MATEMÁTICA 2 M2", # Nombre renombrado
-                        "ASIGNACIÓN ESPECIAL DE PEDAGOGÍA",
-                        "PUNTAJE PONDERADO MÍNIMO DE POSTULACIÓN",
-                        "PUNTAJE PROMEDIO C. LECT. Y MAT1 MÍNIMO DE POSTULACIÓN", # Nombre renombrado
-                        "REGULAR", "MC", "BEA" # Nombre renombrado para + MC
-                    ]
-                    
+                    # Las columnas numéricas ahora usan los nombres que `to_snake_case` generaría
+                    # Generamos esta lista dinámicamente para asegurar que siempre coincida
+                    numeric_cols_final = [to_snake_case(col) for col in columns_to_use if col not in [
+                        "CARRERA O PROGRAMA ACADÉMICO", "LUGAR EN QUE SE IMPARTE", "Opcional"
+                        ]]
+                    # Si 'PACE' existe y se añade, se incluirá automáticamente aquí porque no está en las exclusiones.
+
                     for col in numeric_cols_final:
-                        if col in df.columns:
+                        if col in df.columns: # Asegurarse de que la columna existe en el DF actual
                             df[col] = pd.to_numeric(df[col], errors='coerce')
                             df[col] = df[col].fillna(0)
                             
@@ -93,7 +115,6 @@ def extract_and_clean_tables(pdf_path):
                                 if (df[col] == df[col].astype(int)).all():
                                     df[col] = df[col].astype(int)
                                 
-                    # 6. Eliminar columnas que sean completamente vacías después de la limpieza (si aún quedan)
                     df.dropna(axis=1, how='all', inplace=True)
                     
                     all_cleaned_dfs.append(df)
@@ -104,8 +125,7 @@ def extract_and_clean_tables(pdf_path):
 
                 except ValueError as ve:
                     print(f"    Error de valores al procesar tabla {table_num + 1} en página {page_num + 1}: {ve}")
-                    # Mensajes de error actualizados para reflejar que la validación puede ser con los nombres renombrados
-                    print(f"    Posiblemente la lista de columnas ({len(columns_to_use)}) no coincide con el número de datos ({len(table_data[2]) if len(table_data) > 2 else 'N/A'}).")
+                    print(f"    Posiblemente la lista de columnas ({len(columns_to_use)}) no coincide con el número de datos ({actual_cols_count_in_first_data_row}).")
                     print("    Datos de la primera fila de la tabla (después de saltar encabezados):", table_data[2] if len(table_data) > 2 else "No hay suficientes datos.")
                     print("-" * 50)
                 except Exception as e:
@@ -115,14 +135,29 @@ def extract_and_clean_tables(pdf_path):
 
     return all_cleaned_dfs
 
-# Asegúrate de que esta ruta sea la CORRECTA para tu archivo PDF.
-# Si tu script está en 'Pondera-PAES/Extraccion-PDFs/' y el PDF está en 'Pondera-PAES/Extraccion-PDFs/pdfs/',
-# la ruta relativa desde 'Pondera-PAES/' sería 'Extraccion-PDFs/pdfs/tabla-UAC.pdf'.
-# Si el script se ejecuta directamente desde 'Extraccion-PDFs/', entonces la ruta sería 'pdfs/tabla-UAC.pdf'.
-# Mantendré la ruta que me proporcionaste en tu último script.
-pdf_file = 'Extraccion-PDFs/pdfs/tabla-UAC.pdf'
+# --- Parte principal del script ---
 
-cleaned_dfs = extract_and_clean_tables(pdf_file)
+# 1. Solicitar la información de la universidad al usuario
+nombre_universidad = input("Por favor, introduce el nombre completo de la universidad: ")
+siglas_universidad = input("Por favor, introduce las siglas de la universidad: ")
+
+# NUEVO: Preguntar si el PDF tiene columna PACE
+while True:
+    pace_input = input("¿El PDF actual tiene una columna llamada 'PACE'? (Y/N): ").strip().upper()
+    if pace_input in ['Y', 'N']:
+        has_pace_column = (pace_input == 'Y')
+        break
+    else:
+        print("Entrada no válida. Por favor, introduce 'Y' o 'N'.")
+
+# 2. Define la ruta del archivo PDF (la que cambiarás manualmente)
+pdf_file = 'Extraccion-PDFs/pdfs/tabla-PUCV.pdf' 
+
+# 3. Define la ruta del archivo JSON principal donde se añadirán los datos
+json_output_file = 'Extraccion-PDFs/jsons/Ponderaciones.json'
+
+# 4. Extraer y limpiar las tablas, pasando la información de si tiene columna PACE
+cleaned_dfs = extract_and_clean_tables(pdf_file, nombre_universidad, siglas_universidad, has_pace_column)
 
 if cleaned_dfs:
     print(f"\nTotal de DataFrames limpiados: {len(cleaned_dfs)}")
@@ -133,13 +168,41 @@ if cleaned_dfs:
     print(final_df.head(10))
     print(f"Forma del DataFrame final: {final_df.shape}")
     
-    # Ruta para el archivo JSON de salida
-    json_output_file = 'Extraccion-PDFs/jsons/JSON-Prueba.json'
+    # Convertir el DataFrame a una lista de diccionarios para el JSON
+    carreras_list = final_df.to_dict(orient='records')
     
-    final_df.to_json(json_output_file, orient='records', indent=4, force_ascii=False)
+    # Crear la estructura JSON para la universidad actual
+    current_university_data = {
+        "UNIVERSIDAD": {
+            "nombre_de_la_universidad": nombre_universidad,
+            "siglas": siglas_universidad,
+            "carreras": carreras_list
+        }
+    }
     
-    print(f"\n¡Datos exportados exitosamente a '{json_output_file}' con codificación UTF-8 y nombres de columna deseados!")
-    print("\nRevisa el archivo JSON para confirmar los nombres de columna y los datos.")
+    # Cargar los datos existentes de Ponderaciones.json o inicializar una lista vacía
+    all_universities_data = []
+    if os.path.exists(json_output_file) and os.path.getsize(json_output_file) > 0:
+        try:
+            with open(json_output_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                if content:
+                    all_universities_data = json.loads(content)
+                else:
+                    print(f"Advertencia: '{json_output_file}' está vacío, creando uno nuevo.")
+        except json.JSONDecodeError:
+            print(f"Advertencia: '{json_output_file}' no es un JSON válido. Se creará un nuevo archivo.")
+            all_universities_data = []
+    
+    # Añadir los datos de la universidad actual a la lista
+    all_universities_data.append(current_university_data)
+    
+    # Guardar toda la lista actualizada de universidades en Ponderaciones.json
+    with open(json_output_file, 'w', encoding='utf-8') as f:
+        json.dump(all_universities_data, f, indent=4, ensure_ascii=False)
+    
+    print(f"\n¡Datos de '{nombre_universidad}' agregados/actualizados exitosamente en '{json_output_file}'!")
+    print("\nRevisa el archivo JSON para confirmar la nueva entrada y la inclusión de 'PACE' si aplica.")
 
 else:
     print("No se extrajeron ni limpiaron DataFrames. Revisa el PDF y la lógica de extracción.")
