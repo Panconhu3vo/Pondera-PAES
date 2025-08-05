@@ -5,7 +5,13 @@ import SquareTotal from "./SquareTotal";
 export default function Table() {
     return (
         <View style={{ alignItems: "center" }}>
-            <View style={{ gap: 2, marginVertical: 5, width: 261 }}>
+            <View
+                style={{
+                    gap: 2,
+                    marginVertical: 15,
+                    width: 261,
+                    marginBottom: 10,
+                }}>
                 <View style={[tabla.fila, { justifyContent: "flex-end" }]}>
                     <SquareTable
                         textSquare={"Ponderación"}

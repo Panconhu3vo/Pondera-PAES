@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    Platform,
+    SafeAreaView,
+} from "react-native";
 
 import { useState, useEffect } from "react";
 import DateBlock from "../components/DateBlock";
@@ -10,29 +17,37 @@ export default function PantallaFechas() {
     useEffect(() => {
         if (fechas) {
             setFecha(fechas);
-            console.log(fecha);
         } else {
             console.log("No se encontro el archivo");
         }
     }, []);
 
     return (
-        <View style={styles.pantalla}>
-            <FlatList
-                data={fecha}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <DateBlock
-                        dia={item.dia < 10 ? "0" + item.dia : item.dia}
-                        mes={item.mes}
-                        descripcion={item.descripcion}
-                    />
-                )}
-            />
-        </View>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
+            <View style={styles.pantalla}>
+                <FlatList
+                    data={fecha}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => (
+                        <DateBlock
+                            dia={item.dia < 10 ? "0" + item.dia : item.dia}
+                            mes={item.mes}
+                            descripcion={item.descripcion}
+                        />
+                    )}
+                />
+            </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    pantalla: { alignItems: "center", flex: 1, gap: 10 },
+    pantalla: {
+        alignItems: "center",
+        flex: 1,
+        gap: 10,
+        backgroundColor: "#F5FCFF",
+        flex: 1,
+        paddingTop: Platform.OS == "android" && 35,
+    },
 });
