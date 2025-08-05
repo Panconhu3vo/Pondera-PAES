@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     textSquare: {
         fontFamily: "Raleway-Bold",
-        fontSize: 14,
+        fontSize: 15,
         color: colores.primario,
         textAlign: "center",
     },

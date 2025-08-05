@@ -2,7 +2,30 @@ import { View, StyleSheet } from "react-native";
 import SquareTable from "./TablaPonderaciones/SquareTable";
 import Input from "./Input";
 import ButtonRed from "./ButtonRed";
-export default function ModifyTable() {
+import { use, useState } from "react";
+
+export default function ModifyTable({ puntajes, setPuntajes }) {
+    const [puntajesInputs, setPuntajesInputs] = useState({
+        NEM: "",
+        Ranking: "",
+        Matematicas1: "",
+        Lectora: "",
+        Historia: "",
+        Ciencias: "",
+        Matematicas2: "",
+    });
+    const handleInputChange = (fieldName, value) => {
+        setPuntajesInputs({
+            ...puntajesInputs, // Mantenemos los otros valores del estado
+            [fieldName]: value === "" ? null : parseInt(value), // Actualizamos solo el valor del campo que cambió
+        });
+    };
+    const handleSave = () => {
+        // Aquí puedes hacer algo con los datos de puntajesInputs
+        // Por ejemplo, pasarlos al componente padre para que se guarden
+        setPuntajes(puntajesInputs);
+        console.log("Datos guardados:", puntajesInputs);
+    };
     return (
         <View style={{ gap: 8, alignItems: "center" }}>
             <View style={styles.fila}>
@@ -11,7 +34,12 @@ export default function ModifyTable() {
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.NEM}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("NEM", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
@@ -19,7 +47,12 @@ export default function ModifyTable() {
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Ranking}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Ranking", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
@@ -27,15 +60,25 @@ export default function ModifyTable() {
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Matematicas1}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Matematicas1", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
-                    textSquare={"Comptencia Lectora"}
+                    textSquare={"Competencia Lectora"}
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Lectora}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Lectora", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
@@ -43,25 +86,40 @@ export default function ModifyTable() {
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Historia}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Historia", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
-                    textSquare={"Ciencais"}
+                    textSquare={"Ciencias"}
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Ciencias}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Ciencias", value)
+                    }
+                />
             </View>
             <View style={styles.fila}>
                 <SquareTable
-                    textSquare={"Comptencia Matemáticas 2"}
+                    textSquare={"Competencia Matemáticas 2"}
                     rotate={false}
                     litleSquare={false}
                 />
-                <Input valueInput={null} onChangeTextInput={null} />
+                <Input
+                    valueInput={puntajesInputs.Matematicas2}
+                    onChangeTextInput={(value) =>
+                        handleInputChange("Matematicas2", value)
+                    }
+                />
             </View>
-            <ButtonRed textButton={"Guardar"} buttonFunction={null} />
+            <ButtonRed textButton={"Guardar"} buttonFunction={handleSave} />
         </View>
     );
 }

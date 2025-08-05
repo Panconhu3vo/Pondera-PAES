@@ -2,7 +2,7 @@ import { View, StyleSheet } from "react-native";
 import SquareTable from "./SquareTable";
 import SquareTotal from "./SquareTotal";
 
-export default function Table() {
+export default function Table({ puntajes }) {
     return (
         <View style={{ alignItems: "center" }}>
             <View
@@ -41,7 +41,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.NEM}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -63,7 +63,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Ranking}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -85,7 +85,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Matematicas1}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -107,7 +107,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Lectora}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -129,7 +129,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Historia}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -151,7 +151,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Ciencias}
                         rotate={false}
                         litleSquare={true}
                     />
@@ -173,7 +173,7 @@ export default function Table() {
                         litleSquare={true}
                     />
                     <SquareTable
-                        textSquare={null}
+                        textSquare={puntajes.Matematicas2}
                         rotate={false}
                         litleSquare={true}
                     />
