@@ -8,15 +8,19 @@ import {
 import Table from "../components/TablaPonderaciones/Table";
 import Header from "../components/Header";
 import ModifyTable from "../components/ModifyTable";
+import { useState } from "react";
 
 export default function PantallaInicio() {
+    const [puntajes, setPuntajes] = useState({});
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <ScrollView style={{ paddingTop: Platform.OS === "android" && 35 }}>
                 <Header textTitle={"Cambia Tu Puntaje"} />
-                <ModifyTable />
+                <ModifyTable puntajes={puntajes} setPuntajes={setPuntajes} />
                 <Header textTitle={"Tabla De Ponderaciones"} />
-                <Table />
+                {console.log(puntajes)}
+                <Table puntajes={puntajes} />
             </ScrollView>
         </SafeAreaView>
     );
