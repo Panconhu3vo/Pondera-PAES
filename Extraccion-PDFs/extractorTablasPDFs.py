@@ -102,7 +102,7 @@ def extract_and_clean_tables(pdf_path, university_name, university_acronym):
 nombre_universidad = input("Por favor, introduce el nombre completo de la universidad: ")
 siglas_universidad = input("Por favor, introduce las siglas de la universidad: ")
 
-pdf_file = 'Extraccion-PDFs/pdfs/tabla-UNACH.pdf' 
+pdf_file = 'Extraccion-PDFs/pdfs/tabla-UCT.pdf' 
 
 json_output_file = './Pondera-PAES/data/Ponderaciones.json'
 
