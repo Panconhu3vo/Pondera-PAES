@@ -7,7 +7,8 @@ import { CUSTOM_FONTS } from "./src/constants/Fonts";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons"; // O cualquier otra librería de iconos que uses
+import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // Importa tus pantallas
 import PantallaInfo from "./src/screens/PantallaInfo";
