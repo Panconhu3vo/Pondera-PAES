@@ -3,8 +3,9 @@ import { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import color from "../../constants/Colores";
 
-export default function UniversidadesDropDown({ open, setOpen }) {
-    // Solo inicializa el estado una vez con universidades
+export default function UniversidadesDropDown({ value, setValue }) {
+    const [open, setOpen] = useState(false);
+
     const [items, setItems] = useState([
         {
             label: "PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE",
@@ -187,7 +188,6 @@ export default function UniversidadesDropDown({ open, setOpen }) {
             value: "UTEM",
         },
     ]);
-    const [value, setValue] = useState(null);
 
     return (
         <View style={styles.container}>
@@ -209,21 +209,22 @@ export default function UniversidadesDropDown({ open, setOpen }) {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
+        alignItems: "left",
     },
     dropdown: {
         backgroundColor: color.fondo,
         borderColor: color.primario,
         borderWidth: 5,
         borderRadius: 10,
+        zIndex: 1,
     },
     dropdownContainer: {
-        height: 50,
-        width: "80%",
+        height: 60,
+        width: "90%",
     },
     dropdownOpenContainer: {
-        backgroundColor: "#fff",
-        borderColor: color.secundario,
+        backgroundColor: color.fondo,
+        borderColor: color.primario,
     },
     dropdownText: {
         fontFamily: "Raleway-Bold",
