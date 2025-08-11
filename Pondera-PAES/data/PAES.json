@@ -1,0 +1,36 @@
+{
+    "secciones": [
+        {
+            "titulo": "PAES: Prueba de Acceso a la Educación Superior",
+            "contenido": "La PAES (Prueba de Acceso a la Educación Superior) es un instrumento de evaluación estandarizado para la admisión a las universidades chilenas que participan en el Sistema de Acceso. Su función es servir como criterio de postulación a carreras universitarias y es un requisito para acceder a beneficios estudiantiles como la Gratuidad y becas estatales. La prueba permite que el desempeño en ella pueda compensar un NEM bajo en el cálculo del puntaje ponderado. El proceso de preparación desarrolla competencias académicas como la comprensión lectora, el razonamiento lógico, la resolución de problemas y la interpretación de datos. Sin embargo, la PAES presenta limitaciones, ya que su formato se enfoca en aspectos académicos y no mide la totalidad de las habilidades de un individuo. Además, no es un requisito de admisión para todas las instituciones; Centros de Formación Técnica (CFT) e Institutos Profesionales (IP), al igual que algunas universidades, disponen de vías de admisión propias o especiales."
+        },
+        {
+            "titulo": "¿Cómo funcionan las becas?",
+            "contenido": "Las becas son ayudas económicas no reembolsables destinadas a cubrir los costos de los estudios superiores. En Chile, la postulación a las becas estatales se realiza mediante el FUAS (Formulario Único de Acreditación Socioeconómica), en las fechas que el Ministerio de Educación (Mineduc) define. Los requisitos de postulación varían y generalmente incluyen la situación socioeconómica, un puntaje mínimo en la PAES, las notas de enseñanza media (NEM) y la carrera o institución a la que se postula. La asignación de becas está a cargo del Mineduc. La cobertura puede ser total (ej. Gratuidad) o parcial. Para la mantención de la beca en años académicos posteriores, se debe cumplir con un rendimiento académico mínimo."
+        },
+        {
+            "titulo": "¿Cuáles son las pruebas que tengo que rendir?",
+            "contenido": "El proceso de la PAES incluye pruebas obligatorias y electivas. Las pruebas obligatorias son indispensables para que los puntajes sean considerados en el proceso de admisión universitaria y son: Competencia Lectora y Competencia Matemática 1 (M1). Las pruebas electivas son opcionales y permiten al postulante cumplir con los requisitos de ponderación de determinadas carreras, lo que puede aumentar las posibilidades de ingreso. Estas pruebas son: Competencia Matemática 2 (M2), Ciencias (módulo común y un módulo específico: Biología, Física o Química) e Historia y Ciencias Sociales."
+        },
+        {
+            "titulo": "¿Qué es el NEM y el Ranking? ¿Y por qué son importantes?",
+            "contenido": "El NEM (Notas de Enseñanza Media) corresponde al promedio de las notas de los cuatro años de enseñanza media. Este promedio se transforma a una escala oficial de 100 a 1.000 puntos. Este puntaje representa el rendimiento académico general del estudiante. El Puntaje Ranking es un factor que compara el promedio de notas de un estudiante con el promedio histórico de las tres generaciones anteriores de su mismo establecimiento. También se transforma a una escala de 100 a 1.000 puntos. Su objetivo es reconocer el mérito académico en el contexto específico de cada colegio. Tanto el NEM como el Puntaje Ranking son componentes del puntaje ponderado, que es el puntaje final utilizado en el proceso de admisión. El peso de cada uno es definido por cada universidad para sus carreras."
+        },
+        {
+            "titulo": "¿En qué influye en mi puntaje?",
+            "contenido": "El NEM y el Puntaje Ranking influyen directamente en el puntaje ponderado de postulación, que es el puntaje que las universidades utilizan para la selección. Este puntaje combina los resultados de las pruebas PAES con el NEM y el Ranking, asignándoles un porcentaje de ponderación. Un alto puntaje en el NEM y/o Ranking puede incrementar el puntaje ponderado, compensando resultados más bajos en las pruebas PAES y mejorando las opciones de ingreso a carreras de alta demanda."
+        },
+        {
+            "titulo": "¿Cómo saber mi puntaje final?",
+            "contenido": "Para determinar tu puntaje final, es necesario comprender el proceso de cálculo del puntaje ponderado. Cada prueba PAES, NEM y Ranking tiene un puntaje en la escala de 100 a 1.000. Cada carrera establece los porcentajes de ponderación que asigna a cada puntaje. El puntaje ponderado se calcula multiplicando cada puntaje por su ponderación porcentual y sumando los resultados. Este puntaje final se ubica en la escala de 100 a 1.000. Este puntaje ponderado es el que se usa para ordenar a los postulantes. La postulación se realiza a través del sistema del DEMRE en las fechas establecidas. Los resultados de los seleccionados se publican posteriormente, permitiendo a los estudiantes saber si han sido admitidos."
+        },
+        {
+            "titulo": "¿Qué son las vías de admisión? ¿Cuáles son?",
+            "contenido": "Las vías de admisión son los distintos procesos que las instituciones de educación superior utilizan para el ingreso. Estas vías permiten postular según las características o experiencias de cada individuo. Las vías son: Admisión Regular (PAES), Admisión Especial (para grupos específicos), Admisión por Ranking de Notas, Admisión por Pruebas Propias, Admisión para Egresados de Educación Técnico-Profesional, Admisión para Estudiantes Extranjeros, y Admisión por Reconocimiento de Trayectoria Laboral."
+        },
+        {
+            "titulo": "¿Cuál es la vigencia de los puntajes?",
+            "contenido": "Los puntajes de la PAES tienen una vigencia de dos años, a partir de la fecha de rendición. Por ejemplo, un puntaje obtenido en 2025 es válido para los procesos de admisión de 2025 y 2026. Al finalizar este período, el puntaje caduca."
+        }
+    ]
+}
