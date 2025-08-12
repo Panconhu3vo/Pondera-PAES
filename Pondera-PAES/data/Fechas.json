@@ -1,258 +1,264 @@
 {
-    "2025": [
-        {
-            "id": "20250124",
-            "año": 2025,
-            "mes": "Ene",
-            "dia": 24,
-            "descripcion": "Publicacion Temarios PAES de Invierno"
-        },
-        {
-            "id": "20250305",
-            "año": 2025,
-            "mes": "Mar",
-            "dia": 5,
-            "descripcion": "Inicio etapa de inscripción PAES de Invierno"
-        },
-        {
-            "id": "20250318",
-            "año": 2025,
-            "mes": "Mar",
-            "dia": 18,
-            "descripcion": "Fin etapa de inscripción PAES de Invierno"
-        },
-        {
-            "id": "20250319",
-            "año": 2025,
-            "mes": "Mar",
-            "dia": 19,
-            "descripcion": "Apelación inscripción PAES de Invierno"
-        },
-        {
-            "id": "20250602_1",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 2,
-            "descripcion": "Publicación de Nómina Preliminar de Carreras"
-        },
-        {
-            "id": "20250602_2",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 2,
-            "descripcion": "Se inicia etapa de inscripción PAES Regular"
-        },
-        {
-            "id": "20250613_1",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 13,
-            "descripcion": "Difusión de locales de rendición a través de la descarga de una nueva Tarjeta de Identificación desde el Portal de Inscripción."
-        },
-        {
-            "id": "20250613_2",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 13,
-            "descripcion": "Inicio Presentación Excusas por Inasistencia rendición PAES de Invierno"
-        },
-        {
-            "id": "20250616_1",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 16,
-            "descripcion": "Reconocimiento de Salas\nChile continental (Excepto Aysén y Magallanes) 12:00 a 13:00 hrs.\nRapa Nui 11:00 a 12:00 hrs.\nAysén y Magallanes 13:00 a 14:00 hrs."
-        },
-        {
-            "id": "20250616_2",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 16,
-            "descripcion": "Rendición PAES de Invierno - Día 1: Competencia Matemática 2 (M2)\nChile continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
-        },
-        {
-            "id": "20250617_1",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 17,
-            "descripcion": "Rendición PAES de Invierno - Día 2: Competencia Lectora\nChile continental (Excepto Aysén y Magallanes) 09:00 hrs.\nRapa Nui 08:00 hrs.\nAysén y Magallanes 10:00 hrs."
-        },
-        {
-            "id": "20250617_2",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 17,
-            "descripcion": "Rendición PAES de Invierno - Día 2: Ciencias\nChile continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
-        },
-        {
-            "id": "20250618_1",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 18,
-            "descripcion": "Rendición PAES de Invierno - Día 3: Competencia Matemática 1 (M1)\nChile Continental (Excepto Aysén y Magallanes) 09:00 hrs\nRapa Nui 08:00 hrs.\nAysén y Magallanes 10:00 hrs."
-        },
-        {
-            "id": "20250618_2",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 18,
-            "descripcion": "Rendición PAES de Invierno - Día 3: Historia y Ciencias Sociales\nChile Continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
-        },
-        {
-            "id": "20250619",
-            "año": 2025,
-            "mes": "Jun",
-            "dia": 19,
-            "descripcion": "Fin Presentación Excusas por Inasistencia rendición PAES de Invierno"
-        },
-        {
-            "id": "20250718_1",
-            "año": 2025,
-            "mes": "Jul",
-            "dia": 18,
-            "descripcion": "Resultados de Puntajes PAES de Invierno"
-        },
-        {
-            "id": "20250718_2",
-            "año": 2025,
-            "mes": "Jul",
-            "dia": 18,
-            "descripcion": "Etapa de Verificación de Puntajes PAES de Invierno"
-        },
-        {
-            "id": "20250724",
-            "año": 2025,
-            "mes": "Jul",
-            "dia": 24,
-            "descripcion": "Finaliza etapa de inscripción PAES Regular (Plazo extendido por última vez desde el 23 de julio de 2025)"
-        },
-        {
-            "id": "20250925",
-            "año": 2025,
-            "mes": "Sep",
-            "dia": 25,
-            "descripcion": "Publicación Oferta Definitiva de Carreras, Vacantes y Ponderaciones, Admisión 2026"
-        },
-        {
-            "id": "20251008",
-            "año": 2025,
-            "mes": "Oct",
-            "dia": 8,
-            "descripcion": "Apertura del Simulador de Postulaciones"
-        },
-        {
-            "id": "20251120",
-            "año": 2025,
-            "mes": "Nov",
-            "dia": 20,
-            "descripcion": "Publicación oficial Servicios y Beneficios Universitarios"
-        },
-        {
-            "id": "20251201",
-            "año": 2025,
-            "mes": "Dic",
-            "dia": 1,
-            "descripcion": "Rendición PAES Regular - Día 1"
-        },
-        {
-            "id": "20251202",
-            "año": 2025,
-            "mes": "Dic",
-            "dia": 2,
-            "descripcion": "Rendición PAES Regular - Día 2"
-        },
-        {
-            "id": "20251203",
-            "año": 2025,
-            "mes": "Dic",
-            "dia": 3,
-            "descripcion": "Rendición PAES Regular - Día 3"
-        }
-    ],
-    "2026": [
-        {
-            "id": "20260102",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 2,
-            "descripcion": "Publicación Temarios PAES Regular"
-        },
-        {
-            "id": "20260103",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 3,
-            "descripcion": "Inicio Etapa de Inscripción PAES Regular"
-        },
-        {
-            "id": "20260116",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 16,
-            "descripcion": "Fin Etapa de Inscripción PAES Regular"
-        },
-        {
-            "id": "20260105_1",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 5,
-            "descripcion": "Resultados de Puntajes PAES Regular"
-        },
-        {
-            "id": "20260105_2",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 5,
-            "descripcion": "Inicio Etapa de Postulaciones"
-        },
-        {
-            "id": "20260108_1",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 8,
-            "descripcion": "Finaliza Etapa de Postulaciones"
-        },
-        {
-            "id": "20260108_2",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 8,
-            "descripcion": "Publicación oficial Instrucciones de Matrícula"
-        },
-        {
-            "id": "20260119",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 19,
-            "descripcion": "Resultados del Proceso de Selección"
-        },
-        {
-            "id": "20260120",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 20,
-            "descripcion": "Proceso de Matrícula: Inicio de primera etapa"
-        },
-        {
-            "id": "20260122",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 22,
-            "descripcion": "Proceso de Matrícula: Cierre de primera etapa"
-        },
-        {
-            "id": "20260123",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 23,
-            "descripcion": "Proceso de Matrícula: Inicio de segunda etapa"
-        },
-        {
-            "id": "20260129",
-            "año": 2026,
-            "mes": "Ene",
-            "dia": 29,
-            "descripcion": "Proceso de Matrícula: Cierre de segunda etapa"
-        }
-    ]
+    "2025": {
+        "año": 2025,
+        "fechas": [
+            {
+                "id": "20250124",
+                "año": 2025,
+                "mes": "Ene",
+                "dia": 24,
+                "descripcion": "Publicacion Temarios PAES de Invierno"
+            },
+            {
+                "id": "20250305",
+                "año": 2025,
+                "mes": "Mar",
+                "dia": 5,
+                "descripcion": "Inicio etapa de inscripción PAES de Invierno"
+            },
+            {
+                "id": "20250318",
+                "año": 2025,
+                "mes": "Mar",
+                "dia": 18,
+                "descripcion": "Fin etapa de inscripción PAES de Invierno"
+            },
+            {
+                "id": "20250319",
+                "año": 2025,
+                "mes": "Mar",
+                "dia": 19,
+                "descripcion": "Apelación inscripción PAES de Invierno"
+            },
+            {
+                "id": "20250602_1",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 2,
+                "descripcion": "Publicación de Nómina Preliminar de Carreras"
+            },
+            {
+                "id": "20250602_2",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 2,
+                "descripcion": "Se inicia etapa de inscripción PAES Regular"
+            },
+            {
+                "id": "20250613_1",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 13,
+                "descripcion": "Difusión de locales de rendición a través de la descarga de una nueva Tarjeta de Identificación desde el Portal de Inscripción."
+            },
+            {
+                "id": "20250613_2",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 13,
+                "descripcion": "Inicio Presentación Excusas por Inasistencia rendición PAES de Invierno"
+            },
+            {
+                "id": "20250616_1",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 16,
+                "descripcion": "Reconocimiento de Salas\nChile continental (Excepto Aysén y Magallanes) 12:00 a 13:00 hrs.\nRapa Nui 11:00 a 12:00 hrs.\nAysén y Magallanes 13:00 a 14:00 hrs."
+            },
+            {
+                "id": "20250616_2",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 16,
+                "descripcion": "Rendición PAES de Invierno - Día 1: Competencia Matemática 2 (M2)\nChile continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
+            },
+            {
+                "id": "20250617_1",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 17,
+                "descripcion": "Rendición PAES de Invierno - Día 2: Competencia Lectora\nChile continental (Excepto Aysén y Magallanes) 09:00 hrs.\nRapa Nui 08:00 hrs.\nAysén y Magallanes 10:00 hrs."
+            },
+            {
+                "id": "20250617_2",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 17,
+                "descripcion": "Rendición PAES de Invierno - Día 2: Ciencias\nChile continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
+            },
+            {
+                "id": "20250618_1",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 18,
+                "descripcion": "Rendición PAES de Invierno - Día 3: Competencia Matemática 1 (M1)\nChile Continental (Excepto Aysén y Magallanes) 09:00 hrs\nRapa Nui 08:00 hrs.\nAysén y Magallanes 10:00 hrs."
+            },
+            {
+                "id": "20250618_2",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 18,
+                "descripcion": "Rendición PAES de Invierno - Día 3: Historia y Ciencias Sociales\nChile Continental (Excepto Aysén y Magallanes) 15:00 hrs.\nRapa Nui 14:00 hrs.\nAysén y Magallanes 16:00 hrs."
+            },
+            {
+                "id": "20250619",
+                "año": 2025,
+                "mes": "Jun",
+                "dia": 19,
+                "descripcion": "Fin Presentación Excusas por Inasistencia rendición PAES de Invierno"
+            },
+            {
+                "id": "20250718_1",
+                "año": 2025,
+                "mes": "Jul",
+                "dia": 18,
+                "descripcion": "Resultados de Puntajes PAES de Invierno"
+            },
+            {
+                "id": "20250718_2",
+                "año": 2025,
+                "mes": "Jul",
+                "dia": 18,
+                "descripcion": "Etapa de Verificación de Puntajes PAES de Invierno"
+            },
+            {
+                "id": "20250724",
+                "año": 2025,
+                "mes": "Jul",
+                "dia": 24,
+                "descripcion": "Finaliza etapa de inscripción PAES Regular (Plazo extendido por última vez desde el 23 de julio de 2025)"
+            },
+            {
+                "id": "20250925",
+                "año": 2025,
+                "mes": "Sep",
+                "dia": 25,
+                "descripcion": "Publicación Oferta Definitiva de Carreras, Vacantes y Ponderaciones, Admisión 2026"
+            },
+            {
+                "id": "20251008",
+                "año": 2025,
+                "mes": "Oct",
+                "dia": 8,
+                "descripcion": "Apertura del Simulador de Postulaciones"
+            },
+            {
+                "id": "20251120",
+                "año": 2025,
+                "mes": "Nov",
+                "dia": 20,
+                "descripcion": "Publicación oficial Servicios y Beneficios Universitarios"
+            },
+            {
+                "id": "20251201",
+                "año": 2025,
+                "mes": "Dic",
+                "dia": 1,
+                "descripcion": "Rendición PAES Regular - Día 1"
+            },
+            {
+                "id": "20251202",
+                "año": 2025,
+                "mes": "Dic",
+                "dia": 2,
+                "descripcion": "Rendición PAES Regular - Día 2"
+            },
+            {
+                "id": "20251203",
+                "año": 2025,
+                "mes": "Dic",
+                "dia": 3,
+                "descripcion": "Rendición PAES Regular - Día 3"
+            }
+        ]
+    },
+    "2026": {
+        "año": 2026,
+        "fechas": [
+            {
+                "id": "20260102",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 2,
+                "descripcion": "Publicación Temarios PAES Regular"
+            },
+            {
+                "id": "20260103",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 3,
+                "descripcion": "Inicio Etapa de Inscripción PAES Regular"
+            },
+            {
+                "id": "20260116",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 16,
+                "descripcion": "Fin Etapa de Inscripción PAES Regular"
+            },
+            {
+                "id": "20260105_1",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 5,
+                "descripcion": "Resultados de Puntajes PAES Regular"
+            },
+            {
+                "id": "20260105_2",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 5,
+                "descripcion": "Inicio Etapa de Postulaciones"
+            },
+            {
+                "id": "20260108_1",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 8,
+                "descripcion": "Finaliza Etapa de Postulaciones"
+            },
+            {
+                "id": "20260108_2",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 8,
+                "descripcion": "Publicación oficial Instrucciones de Matrícula"
+            },
+            {
+                "id": "20260119",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 19,
+                "descripcion": "Resultados del Proceso de Selección"
+            },
+            {
+                "id": "20260120",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 20,
+                "descripcion": "Proceso de Matrícula: Inicio de primera etapa"
+            },
+            {
+                "id": "20260122",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 22,
+                "descripcion": "Proceso de Matrícula: Cierre de primera etapa"
+            },
+            {
+                "id": "20260123",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 23,
+                "descripcion": "Proceso de Matrícula: Inicio de segunda etapa"
+            },
+            {
+                "id": "20260129",
+                "año": 2026,
+                "mes": "Ene",
+                "dia": 29,
+                "descripcion": "Proceso de Matrícula: Cierre de segunda etapa"
+            }
+        ]
+    }
 }
